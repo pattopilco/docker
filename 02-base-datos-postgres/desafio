@@ -1,0 +1,17 @@
+PostgreSQL 
+Busque la imagen oficial en Docker Hub para PostgreSQL e inicie su contenedor en la terminal a continuación, cumpliendo los siguientes requisitos:
+
+Un contenedor interactivo.
+Debe retirar el contenedor después de que se detenga.
+Un contenedor llamado postgres.
+Un puerto expuesto de 3000. El puerto predeterminado para PostgreSQL es 5432.
+Un volumen Docker persistente llamado postgresdata. Monte la ruta /var/lib/postgresql/datapara este contenedor.
+Utilice el usuario predeterminado y establezca la contraseña en mysecret.
+
+
+docker run \
+  -it --rm --name postgres \
+  -p 3000:5432 \
+  --mount "src=postgresdata,target=/var/lib/postgresql/data" \
+  -e POSTGRES_PASSWORD=mysecret \
+  postgres
