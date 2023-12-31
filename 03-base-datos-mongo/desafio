@@ -1,0 +1,18 @@
+MongoDB
+Find the official image on the Docker hub for MongoDB and launch its container in the terminal below, fulfilling the following requirements:
+
+An interactive container.
+Should remove the container after the container stops.
+A container named mongodb.
+An exposed port of 3000. The default port for MongoDB is 27017.
+A persistent Docker volume named mongodata. Mount the path /data/db for this container.
+Set a root user and root password of mysecret.
+
+
+  docker run \
+  -it --rm --name mongo \
+  -p 3000:27017 \
+  --mount "src=mongodata,target=/data/db" \
+  -e MONGO_INITDB_ROOT_PASSWORD=mysecret \
+  -e MONGO_INITDB_ROOT_USERNAME=mysecret \
+  mongo
